@@ -1,17 +1,27 @@
 ﻿using UnityEngine;
 
 public class Movement : MonoBehaviour
+    //Change "Movement" 
 {
 
     public Rigidbody x;
     void Start()
     {
-        x.AddForce(0, 200, 500);
+       
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
+        x.AddForce(0, 0, 1000 * Time.deltaTime);
+        if(Input.GetKey("d"))
+        {
+            x.AddForce(500 * Time.deltaTime, 0, 0);
+        }
+        else if(Input.GetKey("a"))
+        {
+            x.AddForce(-500 * Time.deltaTime, 0, 0);
+        }
     }
 }
